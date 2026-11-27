@@ -1,6 +1,6 @@
 # NoSleep
 
-A tiny macOS menu bar app that keeps your Mac awake.
+A tiny, free macOS menu bar app that keeps your Mac awake. [Website](https://qubird.github.io/nosleep/) · [Download](https://github.com/qubird/nosleep/releases/latest/download/NoSleep.zip)
 
 | State | Icon | Meaning |
 |-------|------|---------|

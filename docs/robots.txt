@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://qubird.github.io/nosleep/sitemap.xml

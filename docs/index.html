@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NoSleep – Keep your Mac awake from the menu bar (free, open source)</title>
+<meta name="description" content="NoSleep is a free, open-source macOS menu bar app that prevents your Mac from going to sleep. One click, timed sessions, no Dock icon. A simple alternative to the caffeinate command.">
+<meta name="keywords" content="keep Mac awake, prevent Mac from sleeping, macOS menu bar app, caffeinate alternative, stop Mac sleep, no sleep, open source">
+<meta name="author" content="qubird">
+<meta name="theme-color" content="#0a0a17">
+<link rel="canonical" href="https://qubird.github.io/nosleep/">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NoSleep">
+<meta property="og:title" content="NoSleep – Keep your Mac awake">
+<meta property="og:description" content="Free, open-source macOS menu bar app that prevents your Mac from sleeping. One click, timed sessions, no Dock icon.">
+<meta property="og:url" content="https://qubird.github.io/nosleep/">
+<meta property="og:image" content="https://qubird.github.io/nosleep/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NoSleep – Keep your Mac awake">
+<meta name="twitter:description" content="Free, open-source macOS menu bar app that prevents your Mac from sleeping.">
+<meta name="twitter:image" content="https://qubird.github.io/nosleep/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "NoSleep",
+  "description": "A free, open-source macOS menu bar app that prevents your Mac from going to sleep.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "macOS 12 or later",
+  "url": "https://qubird.github.io/nosleep/",
+  "image": "https://qubird.github.io/nosleep/icon.png",
+  "downloadUrl": "https://github.com/qubird/nosleep/releases/latest/download/NoSleep.zip",
+  "codeRepository": "https://github.com/qubird/nosleep",
+  "license": "https://opensource.org/licenses/MIT",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "qubird", "url": "https://github.com/qubird" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How do I keep my Mac from going to sleep?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Install NoSleep and open it. It starts active right away: the menu bar icon shows a wide-open eye and your Mac will not sleep until you turn it off or quit the app." } },
+    { "@type": "Question", "name": "Is NoSleep different from the caffeinate command?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It uses the same macOS power assertions as caffeinate, but as a menu bar app with one-click toggling and timed sessions, so you do not need a Terminal window." } },
+    { "@type": "Question", "name": "Does NoSleep keep a MacBook awake with the lid closed?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Like every tool of this kind, it stops idle sleep, but closing the lid of a MacBook still puts it to sleep." } },
+    { "@type": "Question", "name": "Is NoSleep free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. NoSleep is free and open source under the MIT license." } }
+  ]
+}
+</script>
+
+<style>
+  :root { --bg:#0a0a17; --card:#14152a; --text:#f1f2f8; --muted:#a3a6bd; --accent:#7c83ff; --line:#262844; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin:0; background: radial-gradient(1200px 600px at 50% -10%, #25274a 0%, var(--bg) 60%) no-repeat, var(--bg);
+         color:var(--text); font:17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  a { color: var(--accent); }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  header.hero { text-align:center; padding: 88px 0 56px; }
+  header.hero img { width: 128px; height: 128px; }
+  h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); line-height:1.1; margin: 24px 0 12px; letter-spacing:-0.02em; }
+  .lead { color: var(--muted); font-size: 1.2rem; max-width: 540px; margin: 0 auto 32px; }
+  .btn { display:inline-block; background: var(--accent); color:#0a0a17; font-weight:600; text-decoration:none;
+         padding: 14px 28px; border-radius: 12px; }
+  .btn:hover { filter: brightness(1.1); }
+  .btn.secondary { background: transparent; color: var(--text); border:1px solid var(--line); margin-left: 8px; }
+  .meta { color: var(--muted); font-size: .9rem; margin-top: 16px; }
+  section { padding: 32px 0; }
+  h2 { font-size: 1.5rem; margin: 0 0 16px; letter-spacing:-0.01em; }
+  .states { display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+  .card { background: var(--card); border:1px solid var(--line); border-radius: 16px; padding: 20px; }
+  .card svg { width: 56px; height: 50px; display:block; margin-bottom: 8px; }
+  .card h3 { margin: 0 0 4px; font-size: 1.05rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+  ul.features { padding-left: 20px; } ul.features li { margin: 6px 0; }
+  ol li { margin: 8px 0; }
+  code { background: var(--card); border:1px solid var(--line); border-radius: 6px; padding: 2px 6px; font-size: .9em; }
+  details { background: var(--card); border:1px solid var(--line); border-radius: 12px; padding: 14px 18px; margin: 10px 0; }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { color: var(--muted); margin: 10px 0 0; }
+  footer { border-top:1px solid var(--line); margin-top: 40px; padding: 28px 0 56px; color: var(--muted); font-size:.9rem; text-align:center; }
+  @media (max-width: 560px) { .states { grid-template-columns: 1fr; } .btn.secondary { margin: 12px 0 0; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <img src="icon.png" width="128" height="128" alt="NoSleep app icon: a wide-open, strained eye">
+  <h1>Keep your Mac awake.</h1>
+  <p class="lead">NoSleep is a tiny, free menu bar app that stops your Mac from going to sleep. One click on, one click off.</p>
+  <a class="btn" href="https://github.com/qubird/nosleep/releases/latest/download/NoSleep.zip">Download for macOS</a>
+  <a class="btn secondary" href="https://github.com/qubird/nosleep">View on GitHub</a>
+  <p class="meta">Free &amp; open source (MIT) · macOS 12 or later</p>
+</header>
+
+<main>
+<section aria-labelledby="how">
+  <h2 id="how">How it looks</h2>
+  <div class="states">
+    <div class="card">
+      <svg viewBox="0 0 20 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M1 6.5C6 13.5 14 13.5 19 6.5C14 -0.5 6 -0.5 1 6.5Z" transform="translate(0 0)"/>
+        <circle cx="10" cy="6.5" r="3.4" stroke-width="1.2"/><circle cx="10" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+        <path d="M10 14.3V17.2M5.2 13.2L3.6 15.8M14.8 13.2L16.4 15.8" transform="translate(0 -2.2)"/>
+      </svg>
+      <h3>Strained eye = on</h3>
+      <p>Your Mac and its display will not sleep.</p>
+    </div>
+    <div class="card">
+      <svg viewBox="0 0 20 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
+        <path d="M1.5 5C6 12 14 12 18.5 5"/><path d="M4 8.8L3.1 11.6M10 9.5V12.3M16 8.8L16.9 11.6"/>
+      </svg>
+      <h3>Closed eye = off</h3>
+      <p>Your Mac sleeps as usual.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="features">
+  <h2 id="features">Features</h2>
+  <ul class="features">
+    <li><strong>Starts working immediately.</strong> Open it and your Mac stays awake.</li>
+    <li><strong>Timed sessions.</strong> Stay awake indefinitely, or for 15 min, 30 min, 1 h, 2 h, 4 h or 8 h, with the time remaining shown in the menu.</li>
+    <li><strong>Menu bar only.</strong> No Dock icon, no windows, no network access.</li>
+    <li><strong>Safe by design.</strong> Uses standard macOS power assertions, the same mechanism as <code>caffeinate</code>. Quit or crash and your Mac goes back to normal.</li>
+    <li><strong>Light and dark menu bars.</strong> The icons adapt automatically.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="install">
+  <h2 id="install">Install</h2>
+  <ol>
+    <li><a href="https://github.com/qubird/nosleep/releases/latest/download/NoSleep.zip">Download NoSleep.zip</a> and unzip it.</li>
+    <li>Drag <code>NoSleep.app</code> into your <code>Applications</code> folder.</li>
+    <li>Right-click the app, choose <strong>Open</strong>, then confirm. This is needed only the first time, because the app is not notarized by Apple.</li>
+    <li>Optional: add it under System Settings → General → Login Items to start it at login.</li>
+  </ol>
+  <p>Prefer to build it yourself? See the <a href="https://github.com/qubird/nosleep#install">instructions on GitHub</a>.</p>
+</section>
+
+<section aria-labelledby="faq">
+  <h2 id="faq">FAQ</h2>
+  <details><summary>How do I keep my Mac from going to sleep?</summary>
+    <p>Install NoSleep and open it. It starts active right away: the menu bar icon shows a wide-open eye and your Mac will not sleep until you turn it off or quit the app.</p></details>
+  <details><summary>Is NoSleep different from the caffeinate command?</summary>
+    <p>It uses the same macOS power assertions as <code>caffeinate</code>, but as a menu bar app with one-click toggling and timed sessions, so you do not need a Terminal window.</p></details>
+  <details><summary>Does it keep a MacBook awake with the lid closed?</summary>
+    <p>No. Like every tool of this kind, it stops idle sleep, but closing the lid of a MacBook still puts it to sleep.</p></details>
+  <details><summary>The icon is missing from my menu bar.</summary>
+    <p>On Macs with a notch, macOS can hide menu bar icons under the notch when the bar is full: hold ⌘ and drag icons to make room. On macOS 26, also check that NoSleep is enabled under System Settings → Menu Bar.</p></details>
+  <details><summary>Is NoSleep free?</summary>
+    <p>Yes. It is free and open source under the <a href="https://github.com/qubird/nosleep/blob/main/LICENSE">MIT license</a>.</p></details>
+</section>
+</main>
+
+<footer>
+  <p>NoSleep is MIT licensed · <a href="https://github.com/qubird/nosleep">Source on GitHub</a> · <a href="https://github.com/qubird/nosleep/issues">Report an issue</a></p>
+</footer>
+
+</div>
+</body>
+</html>
