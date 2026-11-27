@@ -45,3 +45,7 @@ To start it at login, add it under System Settings → General → Login Items.
 | `icons.swift` | Menu bar eye icons, drawn in code |
 | `make_icon.swift` | Generates `AppIcon.icns` from the same artwork |
 | `build.sh` | Builds and ad-hoc signs `NoSleep.app` |
+
+## License
+
+[MIT](LICENSE)
